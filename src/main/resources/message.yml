@@ -1,0 +1,50 @@
+common:
+  not_per: '你没有权限执行该命令'
+  reloaded: '插件重载成功'
+
+auto-broadcasts:
+  First:
+    message:
+      - ""
+      - "<green>常用指令"
+      - "- <yellow>回到主城 <white>/spawn"
+      - "- <yellow>回到城镇 <white>/t spawn"
+      - "- <yellow>回到国家 <white>/n spawn"
+      - "- <yellow>创建城镇 <white>/t create 城镇名称"
+      - "- <yellow>创建国家 <white>/n create 城镇名称"
+      - "- <yellow>向某人转账 <white>/pay 玩家 金额"
+      - "- <yellow>查询余额 <white>/money "
+      - "- <yellow>城镇菜单 <white>/tm"
+      - "- <yellow>国家菜单 <white>/nm"
+      - "- <yellow>地皮菜单 <white>/plm"
+      - ""
+
+  Tips:
+    message:
+      - ""
+      - "<green>Tips"
+      - "<red>不知道怎么赚钱?<blue>主城有基础收购商店.服务器由玩家自主交易组成经济来往."
+      - "<red>新人发展?<blue>找到主城NPC领取新人礼包.用你的原始资金建立一个城镇吧！"
+      - "<blue>积攒到2000SW即可创建属于你的国家!"
+      - "<blue>新城镇、新国家使用菜单管理好自己的权限，谨防熊孩子!"
+      - ""
+
+  PlaceholderAPI:
+    message:
+      - ""
+      - "<light_purple>你好,<white>%player_name%<light_purple>目前在线人数 %online%人"
+      - "<white>别忘记每日签到、幸运抽奖<yellow>在主城可以找到对应的NPC"
+      - ""
+
+  Gradients:
+    message:
+      - ""
+      - "<gradient:red:blue>欢迎加入我们的QQ群组: 960431068."
+      - "<gradient:#FFC88B:#93D3FF>QQ频道: SimpleWorld."
+      - ""
+
+  Links:
+    message:
+      - ""
+      - "<click:open_url:'https://simpleworld-server.github.io'><white>点击 <red>此处 <white>查看 <gradient:#FF6C6C:#FFFFFF>SimpleWorld</gradient><gradient:#FFFFFF:#5EFFF8>百科</gradient> / <yellow>教程<white>."
+      - ""
