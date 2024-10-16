@@ -77,11 +77,7 @@ public final class SimpleBroadcast extends JavaPlugin {
         if (SwUtil.isEmpty(onlinePlayers)) return;
         Integer index = getMsgIndex();
         onlinePlayers.forEach(player -> {
-            if (index + 1 = keyList.size()) {
-                setMsgIndex(0);
-            }
-            Integer msgIndex1 = getMsgIndex();
-            String msgKey = keyList.get(msgIndex1);
+            String msgKey = keyList.get(index);
             String fullKey = msgKey + ".message";
             Audience audience = adventure.player(player);
             List<String> msgs = section.getStringList(fullKey);
@@ -92,7 +88,12 @@ public final class SimpleBroadcast extends JavaPlugin {
                 String text = PlaceholderAPI.setBracketPlaceholders(player, msg);
                 audience.sendMessage(MiniMessage.miniMessage().deserialize(text));
             }
-            setMsgIndex(msgIndex1 + 1);
+            int nextIndex = index + 1;
+            if (nextIndex == keyList.size()) {
+                setMsgIndex(0);
+            }else{
+                setMsgIndex(nextIndex);
+            }
         });
     }
 
