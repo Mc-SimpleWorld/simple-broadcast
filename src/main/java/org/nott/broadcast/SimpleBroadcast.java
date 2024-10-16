@@ -77,7 +77,7 @@ public final class SimpleBroadcast extends JavaPlugin {
         if (SwUtil.isEmpty(onlinePlayers)) return;
         Integer index = getMsgIndex();
         onlinePlayers.forEach(player -> {
-            if (index + 1 > keyList.size()) {
+            if (index + 1 = keyList.size()) {
                 setMsgIndex(0);
             }
             Integer msgIndex1 = getMsgIndex();
