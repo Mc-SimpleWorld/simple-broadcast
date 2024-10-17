@@ -6,7 +6,7 @@ prefix: simple-broadcast
 load: STARTUP
 authors: [ Nott ]
 description: Easy Broadcast Plugin
-soft-depend: ["PlaceholderAPI"]
+depend: ["PlaceholderAPI"]
 
 commands:
   simplebroadcast:
