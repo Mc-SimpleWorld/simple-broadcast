@@ -97,11 +97,26 @@ public final class SimpleBroadcast extends JavaPlugin {
     }
 
     public void initConfigYml() {
-        saveConfig();
-        CONFIG = (YamlConfiguration) this.getConfig();
         YamlConfiguration message = new YamlConfiguration();
         String path = this.getDataFolder() + File.separator + GlobalFactory.MESSAGE_YML;
         File file = new File(path);
+        YamlConfiguration config = new YamlConfiguration();
+        String configPath = this.getDataFolder() + File.separator + GlobalFactory.CONFIG_YML;
+        File configFile = new File(configPath);
+        if (!configFile.exists()) {
+            this.saveResource(GlobalFactory.MESSAGE_YML, false);
+            try {
+                config.load(Objects.requireNonNull(this.getTextResource(GlobalFactory.MESSAGE_YML)));
+            } catch (IOException | InvalidConfigurationException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            try {
+                config.load(configFile);
+            } catch (IOException | InvalidConfigurationException e) {
+                throw new RuntimeException(e);
+            }
+        }
         if (!file.exists()) {
             this.saveResource(GlobalFactory.MESSAGE_YML, false);
             try {
@@ -117,6 +132,7 @@ public final class SimpleBroadcast extends JavaPlugin {
             }
         }
         MESSAGE = message;
+        CONFIG = config;
     }
 
     @Override

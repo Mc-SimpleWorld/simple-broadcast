@@ -11,6 +11,8 @@ public class GlobalFactory {
     public static final String IDENTIFIER = "SimpleWorld For U!";
 
     public static final String MESSAGE_YML = "message.yml";
+
+    public static final String CONFIG_YML = "config.yml";
     public static final String PLUGIN_NAME = "simple-broadcast";
 
 }
