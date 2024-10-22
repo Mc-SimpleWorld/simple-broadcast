@@ -14,6 +14,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.nott.broadcast.SimpleBroadcast;
+import org.nott.utils.SwUtil;
 
 /**
  * @author Nott
@@ -31,14 +32,20 @@ public class SbExecutor implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         if (args.length == 1 && "reload".equals(args[0])) {
-            Audience audience = plugin.adventure().player((Player) commandSender);
             if (commandSender.isOp()) {
                 getPlugin().initConfigYml();
-                TextComponent component = Component.text(SimpleBroadcast.MESSAGE.getString("common.reloaded"))
-                        .color(NamedTextColor.YELLOW);
-                audience.sendMessage(component);
+                boolean isConsole = "console".equalsIgnoreCase(commandSender.getName());
+                if (isConsole) {
+                    SwUtil.log(SimpleBroadcast.MESSAGE.getString("common.reloaded"));
+                }else {
+                    Audience audience = plugin.adventure().player((Player) commandSender);
+                    TextComponent component = Component.text(SimpleBroadcast.MESSAGE.getString("common.reloaded"))
+                            .color(NamedTextColor.YELLOW);
+                    audience.sendMessage(component);
+                }
                 return true;
             } else {
+                Audience audience = plugin.adventure().player((Player) commandSender);
                 TextComponent component = Component.text(SimpleBroadcast.MESSAGE.getString("common.not_per"))
                         .color(NamedTextColor.DARK_RED);
                 audience.sendMessage(component);
